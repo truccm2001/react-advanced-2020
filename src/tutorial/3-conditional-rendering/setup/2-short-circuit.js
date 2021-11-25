@@ -6,7 +6,17 @@ const ShortCircuit = () => {
   // const firstValue = text || 'hello world';
   // const secondValue = text && 'hello world';
 
-  return <h2>short circuit</h2>;
+  const handleClick = () => {
+      setValue(!value);
+  }
+
+  const [value, setValue] = useState(false);
+  return (
+  <>
+  <h2>short circuit</h2>
+  {value && <h1>abc</h1>}
+  <button onClick={handleClick}>Click me</button>
+  </>);
 };
 
 export default ShortCircuit;

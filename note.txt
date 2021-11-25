@@ -1,0 +1,105 @@
+1. React useState with functional update form /  useState with previous state
+(tìm hiểu lại phần này)
+
+2. UseEfffect: work outside the component.
+    Every time the component is rerendered, usEffect Function is provokes, the callback
+    function inside the useEffect is called.
+    Hooks can't be provoked with conditional statement but if we want  "the effect" to happen under a certain condition, we can use condition statement
+inside useEffect.
+ex:
+const value = false;
+useEffect(()=>{
+	if (value){
+	console.log('hello my friend');
+}
+})
+
+3. UseEffect Dependency List: UseEffect callback function is
+provoked only when these value change, if the list is empty
+useEffect has the effect only on the initial.
+ex:
+
+const UseEffectBasics = () => {
+  const [value, setValue] = useState(0);
+  useEffect(() => {
+    console.log('call useEffect');
+    if (value > 0) {
+      document.title = `New Messages(${value})`;
+    }
+  }, [value]);
+
+  console.log('render component');
+  return (
+    <>
+      <h1>{value}</h1>
+      <button className='btn' onClick={() => setValue(value + 1)}>
+        click me
+      </button>
+    </>
+  );
+};
+
+4. We can write second use effect too
+var temp2 = 0;
+const UseEffectBasics = () => {
+  const [value, setValue] = useState(0);
+  const [temp, setTemp] = useState(0);
+
+  useEffect(() => {
+    document.title = (`Display: ${value}`);
+    console.log('use effect is called');
+    console.log(temp2);
+  }, [temp2]);
+
+  useEffect(() => {
+    console.log('Second use effect');
+  });
+
+  return <>
+    <h2>useEffect Basics</h2>
+    <h1>{value}</h1>
+    <button className='btn' onClick={() => {setValue(value + 1); setTemp(temp+2); temp2 += 2;} }>Click me</button>
+  </>
+};
+
+5. API
+API is the acronym for Application Programming Interface, which is a software intermediary that allows two applications
+to talk to each other. Each time you use an app like Facebook, send an instant message, or check the weather on your phone,
+you’re using an API.
+
+When you use an application on your mobile phone, the application connects to the Internet and sends data to a server.
+The server then retrieves that data, interprets it, performs the necessary actions and sends it back to your phone.
+The application then interprets that data and presents you with the information you wanted in a readable way. This is what
+an API is - all of this happens via API.
+To explain this better, let us take a familiar example.
+Imagine you’re sitting at a table in a restaurant with a menu of choices to order from.
+The kitchen is the part of the “system” that will prepare your order. What is missing is the critical link to communicate your
+order to the kitchen and deliver your food back to your table. That’s where the waiter or API comes in. The waiter is the messenger
+– or API – that takes your request or order and tells the kitchen – the system – what to do. Then the waiter delivers the response back
+to you; in this case, it is the food.
+
+6. CleanUp function
+
+7. Render component under some condition.
+ex:
+
+const MultipleReturns = () => {
+  const [loading, setLoading] = useState(false);
+  if (loading) {
+    return <h2> Loading ... </h2>
+  }
+
+  return <h2>Multiple Returns</h2>
+
+}
+
+export default MultifpleReturns;
+
+8. && and || operator
+const text = 'a';
+const first = text || 'hello'; => first = 'a' => return what is first 'true'
+const second = 'text' && 'hello'; => second = 'hello' => return second if first is 'true'
+
+9. compare && and syntax (condition ? trueValueImplementation : falseValueImplementation)
+&& does not require to specify what to do if the condition is false, it just don't do anything
+the second syntax require us to specify what to do if the condition is false
