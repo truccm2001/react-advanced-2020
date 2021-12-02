@@ -103,3 +103,9 @@ const second = 'text' && 'hello'; => second = 'hello' => return second if first 
 9. compare && and syntax (condition ? trueValueImplementation : falseValueImplementation)
 && does not require to specify what to do if the condition is false, it just don't do anything
 the second syntax require us to specify what to do if the condition is false
+
+10. In ES6 if variable hold the value is matches the name of the attribute, we can use write the variable
+ex:
+ person = {name: name, email: email}
+ Can become:
+ person = {name, email}
