@@ -109,3 +109,7 @@ ex:
  person = {name: name, email: email}
  Can become:
  person = {name, email}
+
+11. useRef: 
++ used as a pointer to a DOM node, can be used to control the Dom element
++ does not trigger re-render

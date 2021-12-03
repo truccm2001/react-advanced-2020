@@ -5,7 +5,24 @@ import React, { useEffect, useRef } from 'react';
 // target DOM nodes/elements
 
 const UseRefBasics = () => {
-  return <h2>useRef</h2>;
+  const InputRef = useRef(null);
+
+  useEffect(() => {
+    console.log(InputRef);
+    InputRef.current.focus();
+    console.log(InputRef.current.type);
+    InputRef.current.value = 'abc truc ngo'
+  })
+
+  return (
+  <>
+  <h2>useRef</h2>
+  
+  
+  <input type='date' ref={InputRef}></input>
+  <input type='text' ref={InputRef}></input>
+  
+  </>);
 };
 
 export default UseRefBasics;
